@@ -11,6 +11,8 @@ FROM cicirello/pyaction-lite:3
 # FROM ghcr.io/cicirello/pyaction-lite:3
 # FROM ghcr.io/cicirello/pyaction:4
 # FROM ghcr.io/cicirello/pyaction:3
+run python3 -m ensurepip --default-pip
+RUN python3 -m pip install requests
 
 COPY entrypoint.py /entrypoint.py
 ENTRYPOINT ["/entrypoint.py"]

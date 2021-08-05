@@ -1,27 +1,26 @@
 # Make sure to change the action name here (must be unique).
 # Update the rest as needed.
-name: 'unique-action-goes-here'
-description: 'BRIEF DESCRIPTION OF YOUR ACTION'
+name: 'stupid-coverage-badge-generator'
+description: 'Generates coverage badges from a percent value'
 branding: # Look at documentation for branding options/requirements. These are my favorites.
   icon: 'book-open'
   color: 'green'
 inputs:
-  input-one:  
-    description: 'Description of input-one'
+  percent:
+    description: 'Test coverage in percent'
+    required: true
+  text:
+    description: 'Text on the left of the badge'
     required: false
-    default: 'default value goes here'
-  input-two:
-    description: 'Description of input-two'
+    default: 'coverage'
+  output-path:
+    description: 'Output path for badge'
     required: false
-    default: 'default value goes here'
-outputs:
-  output-one:
-    description: 'Description of output-one'
-  output-two:
-    description: 'Description of output-two'	
+    default: './badges/badge'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.input-one }}
-    - ${{ inputs.input-two }}
+    - ${{ inputs.percent }}
+    - ${{ inputs.text }}
+    - ${{ inputs.output-path }}
