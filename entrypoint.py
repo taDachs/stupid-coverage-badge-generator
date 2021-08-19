@@ -6,7 +6,7 @@ import requests
 
 if __name__ == "__main__" :
     # Rename these variables to something meaningful
-    percent = float(sys.argv[1])
+    percent = round(float(sys.argv[1]), 2)
     text = sys.argv[2]
     output_path = sys.argv[3]
 
